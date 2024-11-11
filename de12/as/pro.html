@@ -9,5 +9,32 @@
     <h2>ゲームの説明</h2>
     <br>
     <br>
-    <p>爆弾のゲームで３色の中からまず1色選んで、爆弾に</p>
+    <p>爆弾のゲームで３色の中からまず1色選んで、爆弾に当たればゲームオーバー</p>
+    <p>当たらなければ、２色の中から１色選んで、爆弾に当たればゲームオーバー</p>
+    <p>当たらなければ、生存ということで勝ちというゲーム</p>
+    <br>
+    <br>
+    <br>
+    <h2>ゲームのソースコード</h2>
+    <br>
+    <br>
+    <pre><code>
+             import random
+    choices =["赤色","青色","黄色"]
+
+    correct_choices = random.choices
+
+    print("爆弾を止めよう！")
+    print("次の中からコードの色を選ぼう:赤色 ,1:青色 ,2:黄色")
+
+    while True:
+        guess = input ("あなたの選択した色")
+
+        if guess == correct_choices:
+                print("死亡です！　ゲームオーバー")
+                break
+            
+         else :
+                print("生存しました！ あと1本！　確率は２分の１　\n")
+    </code></pre>
 </body>
