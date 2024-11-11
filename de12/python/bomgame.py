@@ -8,11 +8,12 @@ print("次の中からコードの色を選ぼう:赤色 ,1:青色 ,2:黄色")
 
 while True:
     guess = input ("あなたの選択した色")
-        if guess == correct_choices:
+
+    if guess == correct_choices:
             print("死亡です！　ゲームオーバー")
             break
             
-        else :
+    else :
             print("生存しました！ あと1本！　確率は２分の１　\n")
         
 
