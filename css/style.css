@@ -30,9 +30,10 @@ html, body {
 	background: #efefef;
 }
 h1{
+    
     text-indent: 0em;
 }
-h2{
+h2{ 
     margin-left: 1em;
     margin-top: 1em;
 }
