@@ -1,43 +1,37 @@
 import dfLink
-import time
 
 #端末設定---------------------
 #端末keyを指定してください。
-pkey='SPtuSZUNC3hcoNvEspiI'
+pkey='YMS9zKimjlGXXZFb47Sp'
 #-------------------------------------------
 
 #シリアルポートを入力-------------------------
-#serial_serch.pyでシリアルポートを検索してください
-serial_port='COM3'
+serial_port='com3'
 #-------------------------------------------
 #Arduinoとのシリアル通信設定-------------------
 my_arduino = dfLink.set_serial(serial_port,9600)
 #-------------------------------------------
 
-
-# --------------------------------------------------------------
+#while Trueは無限ループ#----------------------
 while True:
+    # Arduinoからreadlineコマンドでデータを取得し、data_from_arduinoという変数に格納
+    data_from_arduino=my_arduino.readline()
+    #stripコマンドで、data_from_arduinoの中の余計な文字を削除
+    #さらにintで文字で送られてきたデータをint型に変換
+    data=int(data_from_arduino.strip())
+    print(data)
 
-    # IoTサーバーからデータの取得----------------------------------------------------
-    data_list = dfLink.getData_From_dfLink(pkey=pkey)
-    # リスト形式で取得される
-    print(data_list)
-    # --------------------------------------------------------------
-    #最初データ（0番目)の塊の中の2番目のデータを読みたい（0から始まるので、本当は3番目)
-    try:
-        int_data =int(data_list[0][2])
-        print(int_data)
-        
-        # int_dataが1だったら、'1'を送信(点灯させる）、それ以外の時は'0'を送る(消灯させる）
-        if int_data==1:
-            to_arduino = '1';
-        else:
-            to_arduino = '0';
+    # データの設定--------------------------------
+    int_data = data #Arduinoから受け取った値をここでint_dataにいれる
+    float_data = ""
+    txt_data = ""
+    # -------------------------------------------
 
-
-        #Arduinoにデータを送る
-        my_arduino.write(to_arduino.encode())
-    except:
-        print("データなし")
-
-    time.sleep(1)#指定した秒数を待つ（msでなく秒なので、注意）　　
+    # データの送信---------------------------------
+    # 整数データ:int_data
+    # 実数データ(小数を含むデータ):float_data
+    # テキストデータ:txt_data
+    ret = dfLink.sendData_To_dfLink(int_data=int_data,float_data=float_data,text_data=txt_data,pkey=pkey)
+    print(ret)
+    # -------------------------------------------
+#-------------------------------------------
