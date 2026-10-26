@@ -1,54 +1,117 @@
 @charset "utf-8";
-/* 冒頭でimport */
-@import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
-/* フォントを指定したいところで */
 
-logo img{
+/* ===================================================
+   Fonts Import
+   =================================================== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=M+PLUS+1+Code:wght@400;700&family=Raleway:wght@700&display=swap');
+
+/* ===================================================
+   Color Variables (Green & White Theme)
+   =================================================== */
+:root {
+    --text-main: #1b4332;         /* 本文文字：深みのあるディープグリーン */
+    --text-muted: #406a52;        /* 補足文字：落ち着いたセージグリーン */
+    --accent-green: #10b981;      /* メインアクセント：鮮やかなエメラルド */
+    --accent-dark-green: #047857; /* 見出し用：濃いフォレストグリーン */
+    --border-color: #d1fae5;      /* 枠線・区切り線：淡いグリーン */
+}
+
+/* ===================================================
+   Common Styles
+   =================================================== */
+html, body {
+    font-size: 16px;
+    font-family: 'M PLUS 1 Code', 'JetBrains Mono', sans-serif;
+    color: var(--text-main);
+    
+    /* ▼ グリーンと白のグラデーション背景 ▼ */
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffffff 10%, #ecfdf5 60%, #d1fae5 100%);
+    background-attachment: fixed;
+    
+    margin: 0;
+    padding: 20px 24px 60px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+}
+
+/* ロゴアイコン */
+logo img,
+.logo img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    object-fit: cover; /* 画像のトリミング */
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 14px rgba(4, 120, 87, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-logotohome img{
-    border-radius: 70%;
+logo img:hover,
+.logo img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(4, 120, 87, 0.25);
+}
+
+logotohome img,
+.logotohome img {
+    border-radius: 50%;
     width: 70px;
     height: 70px;
-    object-fit: cover; /* 画像のトリミング */
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(4, 120, 87, 0.15);
 }
 
-
-
-/* ========== common ========== */
-html, body {
-	font-size: 16px;
-	font-family: sans-serif;
-	color: #393939;
-    margin-left: 15px;
-    margin-bottom: 40px;
-	background: #efefef;
+/* ===================================================
+   Headings & Text
+   =================================================== */
+h1 {
+    font-family: 'Raleway', sans-serif;
+    color: var(--accent-dark-green);
+    font-size: 2.2rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.8em;
 }
-h1{
-    text-indent: 0em;
+
+/* 左端にグリーンバーのアクセント */
+h2 {
+    font-size: 1.4rem;
+    color: var(--accent-dark-green);
+    margin-left: 0.5em;
+    margin-top: 1.5em;
+    padding-left: 0.6em;
+    border-left: 4px solid var(--accent-green);
 }
-h2{
-    margin-left: 1em;
+
+h3 {
+    font-size: 1.1rem;
+    color: #065f46;
+    margin-left: 1.2em;
+    margin-top: 1.2em;
+}
+
+div {
     margin-top: 1em;
-}
-h3{
-    margin-left: 2em;
-}
-div{
-    margin-top: 1em;
-    margin-left: 3em;
-}
-p{
-    margin-left: 3em;
-}
-span.blackback{
-    text-indent: 3em;
-    background: #393939;
-    color: #efefef;
+    margin-left: 1.5em;
 }
 
+p {
+    margin-left: 1.5em;
+    color: var(--text-muted);
+}
+
+/* タグ・バッジスタイル */
+span.blackback {
+    display: inline-block;
+    padding: 3px 12px;
+    margin: 2px 0;
+    background: #ffffff;
+    color: var(--accent-dark-green);
+    border: 1px solid var(--accent-green);
+    border-radius: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88em;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(4, 120, 87, 0.08);
+}
