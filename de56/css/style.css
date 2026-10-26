@@ -115,3 +115,62 @@ span.blackback {
     font-weight: 700;
     box-shadow: 0 2px 6px rgba(4, 120, 87, 0.08);
 }
+/* ===================================================
+   Emerald Capsule Buttons
+   =================================================== */
+
+/* 基本のカプセルボタン（エメラルドグリーン塗りつぶし） */
+a.btn, button, .button {
+    display: inline-block;
+    padding: 12px 32px;
+    font-family: 'JetBrains Mono', 'M PLUS 1 Code', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    
+    /* ▼ カプセル型（完全に丸い両端） ▼ */
+    border-radius: 9999px;
+    
+    /* 配色：鮮やかなエメラルドグリーン */
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    border: none;
+    
+    /* やわらかい光彩と影 */
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    transition: all 0.25s ease-in-out;
+}
+
+/* ホバー時：少し浮き上がり、明るく発光するエフェクト */
+a.btn:hover, button:hover, .button:hover {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+    color: #ffffff;
+}
+
+/* クリックした瞬間：指で押したようなフィードバック */
+a.btn:active, button:active, .button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* ---------------------------------------------------
+   サブ用：白ベース ＋ エメラルド枠線のカプセルボタン
+   --------------------------------------------------- */
+a.btn-outline, button.btn-outline {
+    background: #ffffff;
+    color: #059669;
+    border: 2px solid #10b981;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+}
+
+a.btn-outline:hover, button.btn-outline:hover {
+    background: #10b981;
+    color: #ffffff;
+    border-color: #10b981;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+}
